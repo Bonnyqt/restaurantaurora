@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/aurora_psb', [PageController::class, 'psb'])->name('psb');
+Route::get('/aurora2_psb', [PageController::class, 'psb2'])->name('psb2');
+Route::get('/aurora_bistro', [PageController::class, 'bistro'])->name('bistro');
+Route::get('/aurora2_bistro', [PageController::class, 'bistro2'])->name('bistro2');

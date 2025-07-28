@@ -9,17 +9,17 @@
 
 </head>
 <body>
-
+@include('loader')
 <div class="split-container">
   <!-- Left Side -->
-  <div class="split left" onclick="navigateWithLoader('{% url 'pacific' %}')">
+<div class="split left" onclick="navigateWithLoader('{{ url('/aurora_psb') }}')">
     <div class="text-overlay left-overlay">
       <span class="logo-text-combo">
         <img src="{{ asset('images/6.png') }}" style="height: 600px;width: 600px;"alt="Logo">
   
       </span>
     </div>
-    <img class="bg-image" src="{{ asset('images/bg1.jpeg') }}" alt="Left Image">
+    <img class="bg-image" src="{{ asset('images/psb.jpg') }}" alt="Left Image">
   </div>
 
   <!-- Center Logo -->
@@ -34,7 +34,7 @@
       <h4 style="font-family: 'MyFont2', sans-serif;">BISTRO</h4>
       <h1 style="font-family: 'MyFont', sans-serif; font-size:85px;">AURORA</h1>
     </div>
-    <img class="bg-image" src="{{ asset('images/bg2.webp') }}" alt="Right Image">
+    <img class="bg-image" src="{{ asset('images/bistro.JPG') }}" alt="Right Image">
   </div>
 </div>
 
