@@ -293,7 +293,7 @@
     </ul>
   </div>
   <div style="flex:0; display:flex; justify-content:center; align-items:center;">
-    <a href="{% url 'pacific' %}">
+    <a href="{{ url('/aurora_psb') }}">
       <img src="{{ asset('images/branding.png') }}" class="logo" alt="Logo" style="display: block;">
     </a>
   </div>
@@ -310,7 +310,7 @@
 
 <header>
   <div class="top-row">
-<a href="{% url 'pacific' %}">
+<a href="{{ url('/aurora_psb') }}">
   <img src="{{ asset('images/branding.png') }}" class="logo" alt="Logo">
 </a>
 
@@ -335,7 +335,7 @@
         <li><a href="">CONTACT US</a></li>
       </ul>
       
-      <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
+      <div class="switch-logo" onclick="navigateWithLoader2('{{ url('/aurora_bistro') }}')">
         <h1><em>Switch to:</em></h1>
         <img src="{{ asset('images/branding1.png') }}" alt="" style="width: 130px; height: 40px;">
       </div>
@@ -354,7 +354,7 @@
       <li><a href="">CONTACT US</a></li>
     </ul>
     <button class="book-btn sidebar-btn">BOOK NOW</button>
-    <div class="switch-logo" onclick="navigateWithLoader2('{% url 'podium' %}')">
+    <div class="switch-logo" onclick="navigateWithLoader2('{{ url('/aurora_bistro') }}')">
       <h1><em>Switch to:</em></h1>
       <img src="{{ asset('images/branding1.png') }}" alt="" style="width: 130px; height: 40px;">
     </div>

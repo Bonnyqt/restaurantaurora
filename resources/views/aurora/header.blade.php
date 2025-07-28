@@ -134,120 +134,7 @@
   margin-bottom: 0;
 }
    
-   .slideshow-container {
-  width: 100vw;
-  max-width: 100vw;
-  margin: 0;
-  position: relative;
-  background: #181818;
-  border-radius: 0;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-  overflow: hidden;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  height: 650px; /* Increased height */
-  min-height: 500px; /* Optionally increase min-height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slide img {
-  width: 100vw;
-  height: 650px; /* Match container height */
-  object-fit: cover;
-  display: block;
-  border-radius: 0;
-  animation: fadeBlurImg 1.2s;
-}
- 
-    .slide {
-    display: none;
-    height: 100%;
-    position: relative;
-  }
 
-  @keyframes fadeBlurImg {
-    0% {
-      opacity: 0.4;
-      filter: blur(18px);
-    }
-    60% {
-      filter: blur(8px);
-    }
-    100% {
-      opacity: 1;
-      filter: blur(0);
-    }
-  }
-  .slide-dim {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%;
-  height: 100%;
-  /* Black at top, transparent at bottom */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.80) 0%,
-    rgba(0,0,0,0.6) 60%,
-    rgba(0,0,0,0.30) 90%,
-    rgba(0,0,0,.10) 100%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-      .slide-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        z-index: 2;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
-        font-weight: 500;
-        text-align: center;
-        text-shadow: 0 4px 24px rgba(0,0,0,0.35);
-        letter-spacing: 0.04em;
-        width: 90vw;
-        max-width: 700px;
-        padding: 0 16px;
-        line-height: 1.2;
-      }
-    
-    
- .slideshow-dots {
-  text-align: center;
-  padding: 12px 0 8px 0;
-  background: transparent;
-  position: absolute;
-  width: 100vw;
-  z-index: 20;
-  bottom: 0;
-  left: 0;
-}
-
-.dot {
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 4px;
-  background-color: transparent;
-  display: inline-block;
-  border: 2px solid #ffffff;
-
-  transition: all 0.4s ease; /* Animate width and shape */
-}
-
-.dot:hover {
-  background-color: #ffffff;
-}
-
-.dot.active {
-  background-color: #ffffff;
-  width: 50px;
-
-}
 
     .header-row ul li a.active {
   color: #af7f10;
@@ -412,32 +299,7 @@
 }
   
 }
-.luxury-btn {
-  display: inline-block;
-  padding: 14px 34px;
-  color: #fff;
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
 
-  border: 2px solid #af7f10; /* GOLD BORDER */
- 
-  background: transparent;
-
-  transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
- 
-  z-index: 20; 
-}
-
-.luxury-btn:hover {
-  background-color: #af7f10;
-  color: #fff;
-  box-shadow: 0 0 16px rgba(175, 127, 16, 0.5);
-}
 .mobile-sidebar {
   position: fixed;
   top: 0;
@@ -568,7 +430,7 @@
       </ul>
     </nav>
     <div class="right-corner-logo">
-      <img src="{{ asset('images/branding1.png') }}" alt="Logo"onclick="navigateWithLoader2('{% url 'podium2' %}')">
+      <img src="{{ asset('images/branding1.png') }}" alt="Logo"onclick="navigateWithLoader2('{{ url('/aurora2_bistro') }}')">
     </div>
   </div>
 </div>
@@ -584,44 +446,13 @@
         <li><a href="#">CONTACT US</a></li>
       </ul>
     </nav>
-    <div class="right-corner-logo" onclick="navigateWithLoader2('{% url 'podium2' %}')">
+    <div class="right-corner-logo" onclick="navigateWithLoader2('{{ url('/aurora2_bistro') }}')">
       <img src="{{ asset('images/branding1.png') }}" alt="Logo">
     </div>
   </div>
 </header>
 
- <div class="slideshow-container">
-  <!-- Centered logo that will disappear on scroll -->
-  <div class="logo-center-slide" id="slideshowLogo">
-    <img id="logoslide"src="{{ asset('images/branding5.png') }}" style="width: 300px;height: auto;" alt="Logo">
-    <div style="text-align: center; margin-top: 40px;">
-  <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
-</div>
-  </div>
-
-  <div class="slide fade" style="display:block;">
-    <img src="https://carrolldesign.co.uk/wp-content/uploads/2023/05/functional-restaurant-design.jpg" alt="Sample 1">
-    <div class="slide-dim"></div>
-  </div>
-  <div class="slide fade">
-    <img src="https://destinasian.com/_next/image?url=https%3A%2F%2Fstaging.destinasian.com%2Fwp-content%2Fuploads%2FCarlos-Manila-Photo-by-Scott-A-Woodward.jpeg&w=3840&q=75" alt="Sample 2">
-    <div class="slide-dim"></div>
-  </div>
-  <div class="slide fade">
-    <img src="https://images.travelandleisureasia.com/wp-content/uploads/sites/4/2025/05/02170004/aesthetic-rest-hero-1600x900.jpeg" alt="Sample 3">
-    
-    <div class="slide-dim"></div>
-  </div>
-  
-    <div class="slideshow-dots">  
-      <span class="dot" onclick="showSlide(0)"></span>
-      <span class="dot" onclick="showSlide(1)"></span>
-      <span class="dot" onclick="showSlide(2)"></span>
-    </div>
-</div>
-
-    <!-- Dots -->
-  
+ 
   </div>
 
  
@@ -650,13 +481,13 @@
     // Auto slideshow
     function autoSlide() {
       nextSlide();
-      setTimeout(autoSlide, 4000);
+      setTimeout(autoSlide, 10000);
     }
 
     // Initialize
     document.addEventListener("DOMContentLoaded", function() {
       showSlide(0);
-      setTimeout(autoSlide, 4000);
+      setTimeout(autoSlide, 10000);
     });
     window.addEventListener('scroll', function () {
   const sticky = document.getElementById('stickyHeader');

@@ -18,4 +18,7 @@ public function bistro() {
 public function bistro2() {
     return view('bistro.bistro2');
 }
+public function about() {
+    return view('aurora.about');
+}
 }

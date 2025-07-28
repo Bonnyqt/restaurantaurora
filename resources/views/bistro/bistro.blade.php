@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" type="image/png" href="{% static 'images/auroraLogo.png' %}">
+  <link rel="icon" type="image/png" href="{{ asset('images/auroraLogo.png') }}">
   <title>BISTRO AURORA</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="{{ asset('css/podium.css') }}">
@@ -238,7 +238,7 @@
     </ul>
   </div>
   <div style="flex:0; display:flex; justify-content:center; align-items:center;">
-    <a href="{% url 'pacific' %}">
+    <a href="{{ url('/aurora_psb') }}">
       <img src="{{ asset('images/branding3.png') }}" class="logo" alt="Logo" style="display: block;">
     </a>
   </div>
@@ -253,7 +253,7 @@
   </div>
 <header>
   <div class="top-row">
-  <a href="{% url 'podium' %}">
+  <a href="{{ url('/aurora_bistro') }}">
   <img src="{{ asset('images/branding3.png') }}" class="logo" alt="Logo">
 </a>
 
@@ -278,7 +278,7 @@
         <li><a href="">CONTACT US</a></li>
       </ul>
       
-      <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific' %}')">
+      <div class="switch-logo" onclick="navigateWithLoader('{{ url('/aurora_psb') }}')">
         <h1 style="color:black;"><em>Switch to:</em></h1>
         <img src="{{ asset('images/branding4.png') }}" alt="" style="width: 130px; height: 40px;">
       </div>
@@ -297,7 +297,7 @@
       <li><a href="">CONTACT US</a></li>
     </ul>
     <button class="book-btn sidebar-btn">BOOK NOW</button>
-    <div class="switch-logo" onclick="navigateWithLoader('{% url 'pacific' %}')">
+    <div class="switch-logo" onclick="navigateWithLoader('{{ url('/aurora_psb') }}')">
       <h1 style="  color: rgb(0, 0, 0); "><em>Switch to:</em></h1>
       <img src="{{ asset('images/branding4.png') }}" alt="" style="width: 130px; height: 40px;">
     </div>

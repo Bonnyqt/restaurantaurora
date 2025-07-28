@@ -29,7 +29,7 @@
   </div>
 
   <!-- Right Side -->
-  <div class="split right" onclick="navigateWithLoader2('{% url 'podium' %}')">
+  <div class="split right" onclick="navigateWithLoader2('{{ url('/aurora_bistro') }}')">
     <div class="text-overlay right-overlay">
       <h4 style="font-family: 'MyFont2', sans-serif;">BISTRO</h4>
       <h1 style="font-family: 'MyFont', sans-serif; font-size:85px;">AURORA</h1>

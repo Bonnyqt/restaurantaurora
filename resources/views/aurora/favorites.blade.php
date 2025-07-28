@@ -188,9 +188,9 @@
 
   <div class="image-gallery">
     <div class="image-item">
-      <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/497110478_679086994880387_5167735145198491355_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=e7sTxZ11cUQQ7kNvwG9EUyt&_nc_oc=AdlT9Cpuw7PJHeH8QEChydZ6FkFAS9JRC4RpMCE1JczYnn9SRaZPeeLsc1SOQASCPKw&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=Rt9LIlSgFCBagBM7jZGX1Q&oh=00_AfNqX3GdppZizip4sTdKKgEAngUmBdxMESCAiLrrrAaBSw&oe=68690BE9" alt="Food 1">
+      <img src="{{ asset('images/piccolo.JPG') }}" alt="Food 1">
       <div class="hover-dim"></div>
-      <div class="hover-text">Negroni</div>
+      <div class="hover-text">Piccolo</div>
     </div>
     <div class="image-item">
       <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/500764818_691227093666377_1272777622246674572_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kF19aqUnX3sQ7kNvwF3CZGK&_nc_oc=Adm1NVcppF-z3S9HKJQEJtvX01NtCtmNahm4aFBSQUjezEO_YgQTYHpkx1HD-giBr4c&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=hqx3fBCwlb9bjOBz68at_A&oh=00_AfPA-VhQkyCrtFqHONITsKFC0ajWjUebJA-ySSo-s85SgA&oe=686926F8" alt="Drink 1">

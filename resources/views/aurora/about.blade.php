@@ -174,7 +174,7 @@
     }
   }
 </style>
-
+@include('aurora.header')
 <div class="about-container" id="aboutAnchor">
 <div class="about-section">
   <div class="about-image">
@@ -188,7 +188,9 @@
       robust and familiar flavors you know and love. Our plates are designed to 
       be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
     </p>
-    <a href="{% url 'about' %}"><button  class="read-more-btn">READ MORE</button></a>
+    <a href="{{ url('/about') }}"><button  class="read-more-btn">READ MORE</button></a>
+    
   </div>
 </div>
 </div>
+
