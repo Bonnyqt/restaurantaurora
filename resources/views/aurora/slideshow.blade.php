@@ -21,7 +21,6 @@
   width: 100vw;
   height: 750px; /* Match container height */
   object-fit: cover;
-  display: block;
   border-radius: 0;
   animation: fadeBlurImg 1.2s;
 }
@@ -172,12 +171,7 @@
  
  <div class="slideshow-container">
   <!-- Centered logo that will disappear on scroll -->
-  <div class="logo-center-slide" id="slideshowLogo">
-    <img id="logoslide"src="{{ asset('images/branding5.png') }}" style="width: 300px;height: auto;" alt="Logo">
-    <div style="text-align: center; margin-top: 40px;">
-  <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
-</div>
-  </div>
+ 
  <a class="slideshow-arrow left-arrow" onclick="prevSlide()">
     &#10094;
   </a>
@@ -185,20 +179,42 @@
   <a class="slideshow-arrow right-arrow" onclick="nextSlide()">
     &#10095;
   </a>
-  <div class="slide fade" style="display:block;">
+   <div class="slide fade">
+     <div class="logo-center-slide" id="slideshowLogo">
+    <img id="logoslide"src="{{ asset('images/branding5.png') }}" style="width: 300px;height: auto;" alt="Logo">
+    <div style="text-align: center; margin-top: 40px;">
+  <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
+</div>
+  </div>
     <img src="{{ asset('images/slide1.jpg') }}" alt="Sample 1">
     <div class="slide-dim"></div>
   </div>
   <div class="slide fade">
+     <div id="slideshowLogo" style="
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  pointer-events: none;
+"> 
+  <div style="pointer-events: auto;">
+    <img src="{{ asset('images/branding.png') }}" style="width: 200px; height: auto;" alt="Logo">
+    <p style="color: white; margin-top: 40px; font-size:20px;">
+      testetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetestetesteteste
+    </p>
+  </div>
+</div>
     <img src="{{ asset('images/slide2.jpg') }}" alt="Sample 2">
     <div class="slide-dim"></div>
   </div>
   <div class="slide fade">
     <img src="{{ asset('images/slide3.jpg') }}" alt="Sample 3">
-    
     <div class="slide-dim"></div>
   </div>
-  <div class="slide fade" style="display:block;">
+  <div class="slide fade">
     <img src="{{ asset('images/slide1.jpg') }}" alt="Sample 1">
     <div class="slide-dim"></div>
   </div>
@@ -212,63 +228,79 @@
  
  
  <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
+let slideIndex = 0;
+const slides = document.getElementsByClassName("slide");
+const dots = document.getElementsByClassName("dot");
 
-    function showSlide(n) {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        dots[i].classList.remove("active");
-      }
-      slides[n].style.display = "block";
-      dots[n].classList.add("active");
-      slideIndex = n;
-    }
+let autoSlideTimeout = null;
+let isHovered = false;
 
-    function nextSlide() {
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }
-function prevSlide() {
-  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-  showSlide(slideIndex);
-}
-    // Auto slideshow
-    function autoSlide() {
-      nextSlide();
-      setTimeout(autoSlide, 10000);
-    }
+function showSlide(n) {
+  slideIndex = (n + slides.length) % slides.length;
 
-    // Initialize
-    document.addEventListener("DOMContentLoaded", function() {
-      showSlide(0);
-      setTimeout(autoSlide, 10000);
-    });
-    window.addEventListener('scroll', function () {
-  const sticky = document.getElementById('stickyHeader');
-  if (window.scrollY > 100) {
-    sticky.style.display = 'block';
-  } else {
-    sticky.style.display = 'none';
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+    dots[i].classList.remove("active");
   }
+
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].classList.add("active");
+}
+
+function nextSlide() {
+  showSlide(slideIndex + 1);
+}
+
+function prevSlide() {
+  showSlide(slideIndex - 1);
+}
+
+function autoSlide() {
+  if (!isHovered) {
+    nextSlide();
+  }
+  autoSlideTimeout = setTimeout(autoSlide, 10000); // Continue the loop
+}
+
+// Initialize
+document.addEventListener("DOMContentLoaded", function () {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  showSlide(0);
+  autoSlideTimeout = setTimeout(autoSlide, 10000);
 });
 
+// Pause on hover
+const slideshowContainer = document.querySelector('.slideshow-container');
+
+slideshowContainer.addEventListener('mouseenter', function () {
+  isHovered = true;
+  clearTimeout(autoSlideTimeout);
+});
+
+slideshowContainer.addEventListener('mouseleave', function () {
+  isHovered = false;
+  autoSlideTimeout = setTimeout(autoSlide, 10000);
+});
+
+// Scroll behaviors
 window.addEventListener('scroll', function () {
   const sticky = document.getElementById('stickyHeader');
   const slideshowLogo = document.getElementById('slideshowLogo');
 
   if (window.scrollY > 100) {
-    sticky.classList.add('show');
-    slideshowLogo.classList.add('hidden');
+    if (sticky) sticky.classList.add('show');
+    if (slideshowLogo) slideshowLogo.classList.add('hidden');
   } else {
-    sticky.classList.remove('show');
-    slideshowLogo.classList.remove('hidden');
+    if (sticky) sticky.classList.remove('show');
+    if (slideshowLogo) slideshowLogo.classList.remove('hidden');
   }
 });
+
 function toggleMobileNav() {
   const sidebar = document.getElementById('mobileSidebar');
   sidebar.classList.toggle('show');
   document.body.style.overflow = sidebar.classList.contains('show') ? 'hidden' : '';
 }
-  </script>
+</script>

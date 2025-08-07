@@ -1,69 +1,78 @@
 <style>
-  .about-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 40px;
-      max-width: 1200px;
-      margin: auto;
-      
-    }
+.about-container {
+  background-image: url('https://media.istockphoto.com/id/2150089015/vector/light-grey-and-white-gradient-coloured-textured-effect-old-faded-blank-empty-plain.jpg?s=612x612&w=0&k=20&c=3lRofPRUMUWXZFCmzWOpxSIyM8Mn-CDU7_OeNxikTzc=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 20px;
+}
 
-    .about-image {
-      flex: 1;
-      max-width: 500px;
-    }
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
 
-    .about-image img {
-      width: 100%;
-      height: auto;
+.about-image {
+  position: relative;
+  width: 350px;
+  height: 550px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.about-img,
+.about-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 350px;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
 
-    }
+.about-video {
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
 
-    .about-text {
-      flex: 1;
-      padding-left: 60px;
-    }
+.about-container:hover .about-video {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-    .about-text h3 {
-      font-size: 14px;
-      color: #888;
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      position: relative;
-    }
+.about-container:hover .about-img {
+  opacity: 0;
+}
 
-    .about-text h1 {
-      font-size: 40px;
-      font-weight: bold;
-      color: #2c1d18;
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
+.about-text {
+  flex: 1 1 300px;
+  min-width: 280px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-    .about-text p {
-      font-size: 16px;
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
+.about-text h3 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #555;
+  margin-bottom: 10px;
+}
 
-    .read-more-btn {
-      padding: 12px 25px;
-      font-size: 14px;
-      text-transform: uppercase;
-      background: transparent;
-      border: 1px solid #2c1d18;
-      color: #2c1d18;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .read-more-btn:hover {
-      background: #2c1d18;
-      color: #fff;
-    }
-    .about-text h1 {
+.about-text h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #2c1d18;
+  margin-bottom: 20px;
   position: relative;
   display: inline-block;
 }
@@ -72,125 +81,109 @@
   content: '';
   position: absolute;
   left: 0;
-  bottom: -5px; /* adjust for spacing */
+  bottom: -5px;
   width: 0;
   height: 2px;
-  background-color: #2c1d18; /* or your brand color */
+  background-color: #2c1d18;
   transition: width 0.4s ease;
 }
 
 .about-text:hover h1::after {
   width: 100%;
 }
- .about-container {
-    background-image: url('https://media.istockphoto.com/id/2150089015/vector/light-grey-and-white-gradient-coloured-textured-effect-old-faded-blank-empty-plain.jpg?s=612x612&w=0&k=20&c=3lRofPRUMUWXZFCmzWOpxSIyM8Mn-CDU7_OeNxikTzc=');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 40px 20px;
-  }
 
+.about-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.read-more-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid #2c1d18;
+  color: #2c1d18;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.read-more-btn:hover {
+  background: #2c1d18;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .about-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: auto;
-    flex-wrap: wrap;
-  }
-
-  .about-image img {
-    max-width: 100%;
-    height: auto;
-
-  }
-
-  .about-image,
-  .about-text {
-    flex: 1 1 300px;
-    min-width: 280px;
-  }
-
-  .about-text {
-    padding: 20px;
-    justify-content: center;
+    flex-direction: column;
     text-align: center;
-    align-items: center;
   }
 
-  .about-text h3 {
-    font-size: 14px;
-    letter-spacing: 1px;
-    color: #555;
-    margin-bottom: 10px;
+  .about-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
+
+  .about-img,
+  .about-video {
+    position: static;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .about-text h1 {
-    font-size: 60px;
-    color: #2c1d18;
-    margin-bottom: 20px;
+    font-size: 28px;
   }
 
   .about-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 30px;
+    font-size: 15px;
   }
 
-  .read-more-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-    background: transparent;
-    border: 1px solid #2c1d18;
-    color: #2c1d18;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
+  .about-image {
+    margin-bottom: 20px;
   }
-
-  .read-more-btn:hover {
-    background: #2c1d18;
-    color: white;
-  }
-
-  @media (max-width: 768px) {
-    .about-section {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .about-text h1 {
-      font-size: 28px;
-    }
-
-    .about-text p {
-      font-size: 15px;
-    }
-
-    .about-image {
-      margin-bottom: 20px;
-    }
-  }
+}
 </style>
 @include('aurora.header')
 <div class="about-container" id="aboutAnchor">
-<div class="about-section">
-  <div class="about-image">
-    <img src="{{ asset('images/psb.jpg') }}" style="width: auto;height: 550px;" alt="About Image">
-  </div>
-  <div class="about-text">
-    <div class="elegant-line-text">ABOUT</div>
-    <h1>AURORA</h1>
-    <p>
-      At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
-      robust and familiar flavors you know and love. Our plates are designed to 
-      be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
-    </p>
-    <a href="{{ url('/about') }}"><button  class="read-more-btn">READ MORE</button></a>
-    
+  <div class="about-section">
+    <div class="about-image">
+      <img src="{{ asset('images/psb.jpg') }}" alt="About Image" class="about-img" style="width: 350px;
+  height: 100%;">
+      <video class="about-video" muted loop preload="none">
+        <source src="{{ asset('images/vid.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="about-text">
+      <div class="elegant-line-text">ABOUT</div>
+      <h1>AURORA</h1>
+      <p>
+        At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
+        robust and familiar flavors you know and love. Our plates are designed to 
+        be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
+      </p>
+      <a href="{{ url('/about') }}"><button  class="read-more-btn">READ MORE</button></a>
+    </div>
   </div>
 </div>
-</div>
+
+<script>
+  const container = document.querySelector('.about-container');
+  const video = container.querySelector('.about-video');
+
+  container.addEventListener('mouseenter', () => {
+    video.play();
+  });
+
+  container.addEventListener('mouseleave', () => {
+    video.pause();
+    video.currentTime = 0; // Reset video to start
+  });
+</script>
 

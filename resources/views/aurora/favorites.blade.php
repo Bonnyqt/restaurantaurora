@@ -188,34 +188,34 @@
 
   <div class="image-gallery">
     <div class="image-item">
-      <img src="{{ asset('images/piccolo.JPG') }}" alt="Food 1">
+      <img src="{{ asset('images/piccolo.JPG') }}" alt="Piccolo">
       <div class="hover-dim"></div>
       <div class="hover-text">Piccolo</div>
     </div>
     <div class="image-item">
-      <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/500764818_691227093666377_1272777622246674572_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kF19aqUnX3sQ7kNvwF3CZGK&_nc_oc=Adm1NVcppF-z3S9HKJQEJtvX01NtCtmNahm4aFBSQUjezEO_YgQTYHpkx1HD-giBr4c&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=hqx3fBCwlb9bjOBz68at_A&oh=00_AfPA-VhQkyCrtFqHONITsKFC0ajWjUebJA-ySSo-s85SgA&oe=686926F8" alt="Drink 1">
+      <img src="{{ asset('images/tomahawk.JPG') }}" alt="Tomahawk Steak">
       <div class="hover-dim"></div>
-      <div class="hover-text"> Crispy Betel Leaf Cups</div>
+      <div class="hover-text"> Tomahawk Steak</div>
     </div>
     <div class="image-item">
-      <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/484444405_635826315873122_6012874442802915385_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=yHkRzvKdPjUQ7kNvwFZ6Du-&_nc_oc=Adm3BiIL9l8owYsmrGIVET_wVhx8lVXmKT0Dei89_71aW28Atf--vV2pGloxgHKSexw&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=IuY2BHHKhZAxb8d1HhZwAw&oh=00_AfMr9Cy3BRpARerJstMHy64feprSMJ9rAM_7Pcb8NgRhRQ&oe=68692B79" alt="Food 2">
+      <img src="{{ asset('images/matcha.JPG') }}" alt="Iced Matcha">
       <div class="hover-dim"></div>
-      <div class="hover-text">Singha soda</div>
+      <div class="hover-text">Iced Matcha</div>
     </div>
     <div class="image-item">
-      <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/496844525_679172778205142_8271853939765766049_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=cCwTEf-uwsMQ7kNvwGUkfe2&_nc_oc=AdmD5AaQsTlmNNfvPQ29kUBbA5YcjoCz7g8hh11Mm9zj_ET9MJca9aNGKi0ENtJreH8&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=b2Pi6rpVB89dQVCHa-xtSA&oh=00_AfM8JGTlNMbOD--BM0lRWXah_m3US6OafoCaHiWtdc-5eA&oe=68691FD1" alt="Drink 2">
+      <img src="{{ asset('images/pata.JPG') }}" alt="Crispy Pata">
+      <div class="hover-dim"></div>
+      <div class="hover-text">Crispy Pata</div>
+    </div>
+    <div class="image-item">
+      <img src="{{ asset('images/mimosa.JPG') }}" alt="Mimosa">
+      <div class="hover-dim"></div>
+      <div class="hover-text">Mimosa</div>
+    </div>
+    <div class="image-item">
+      <img src="{{ asset('images/salmon.JPG') }}" alt="Salmon Donburi">
       <div class="hover-dim"></div>
       <div class="hover-text">Salmon Donburi</div>
-    </div>
-    <div class="image-item">
-      <img src="https://scontent.fmnl15-1.fna.fbcdn.net/v/t39.30808-6/488642529_649719901150430_7896926609901838939_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6vK7qPJL_EoQ7kNvwEPmTNY&_nc_oc=AdlHPlk6tJtvvKKakFQUlCKI9r3Sfa87-ma0JVlOhawO-oqTyqOfSLeSliLkZmbr7uA&_nc_zt=23&_nc_ht=scontent.fmnl15-1.fna&_nc_gid=S-b5RD6wYMnJDpbVz4ds1w&oh=00_AfMPO5LKbAS6rYaMzVOGBCZiNnnDDh175S7O41Zz7mh9Mw&oe=68691674" alt="Food 3">
-      <div class="hover-dim"></div>
-      <div class="hover-text">Cucumber Salad cocktail</div>
-    </div>
-    <div class="image-item">
-      <img src="https://scontent.fcrk1-2.fna.fbcdn.net/v/t51.75761-15/472777797_17976081020798921_7797930680567044075_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Xb27643qPzwQ7kNvwHMKZPu&_nc_oc=AdnKhacFZ4gZphVlOKITvN_JjnT1Fc-ktqKQeyuW4sw83Q_2JMZS4x7g2QV-t5CTskg&_nc_zt=23&_nc_ht=scontent.fcrk1-2.fna&_nc_gid=EgIRbFv5YbdTTI6HAK_1Yg&oh=00_AfOFIuvEPcwduJJ7_Btugz1SMRexvKp85NkNzVJxtkFrJw&oe=6863517E" alt="Drink 3">
-      <div class="hover-dim"></div>
-      <div class="hover-text">Duck Leg Boat Noodle</div>
     </div>
   </div>
 

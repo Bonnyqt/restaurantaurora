@@ -459,36 +459,7 @@
 </body>
 
  <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    const dots = document.getElementsByClassName("dot");
 
-    function showSlide(n) {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        dots[i].classList.remove("active");
-      }
-      slides[n].style.display = "block";
-      dots[n].classList.add("active");
-      slideIndex = n;
-    }
-
-    function nextSlide() {
-      slideIndex = (slideIndex + 1) % slides.length;
-      showSlide(slideIndex);
-    }
-
-    // Auto slideshow
-    function autoSlide() {
-      nextSlide();
-      setTimeout(autoSlide, 10000);
-    }
-
-    // Initialize
-    document.addEventListener("DOMContentLoaded", function() {
-      showSlide(0);
-      setTimeout(autoSlide, 10000);
-    });
     window.addEventListener('scroll', function () {
   const sticky = document.getElementById('stickyHeader');
   if (window.scrollY > 100) {
