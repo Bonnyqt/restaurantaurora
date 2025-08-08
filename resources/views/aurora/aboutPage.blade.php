@@ -1,4 +1,11 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>AURORA | About</title>
+</head>
+   <style>
 .about-container {
   background-image: url('https://media.istockphoto.com/id/2150089015/vector/light-grey-and-white-gradient-coloured-textured-effect-old-faded-blank-empty-plain.jpg?s=612x612&w=0&k=20&c=3lRofPRUMUWXZFCmzWOpxSIyM8Mn-CDU7_OeNxikTzc=');
   background-size: cover;
@@ -120,6 +127,7 @@
   .about-section {
     flex-direction: column;
     text-align: center;
+    gap: 0;
   }
 
   .about-image {
@@ -148,8 +156,25 @@
     margin-bottom: 20px;
   }
 }
-</style>
+@media (hover: none) and (pointer: coarse) {
+  .about-container:hover .about-video {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 
+  .about-container:hover .about-img {
+    opacity: 1 !important;
+  }
+
+  .about-text:hover h1::after {
+    width: 0 !important;
+  }
+}
+</style>
+<body>
+
+@include('aurora.header')
+   @include('aurora.heading')
 <div class="about-container" id="aboutAnchor">
   <div class="about-section">
     <div class="about-image">
@@ -161,17 +186,39 @@
 </video>
     </div>
     <div class="about-text">
-      <div class="elegant-line-text">ABOUT</div>
+
       <h1>AURORA</h1>
       <p>
         At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
         robust and familiar flavors you know and love. Our plates are designed to 
         be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
       </p>
-      <a href="{{ url('/about') }}" data-title="ABOUT"><button  class="read-more-btn">READ MORE</button></a>
+  
     </div>
   </div>
+   <div class="about-section">
+    <div class="about-text">
+
+      <h1>CHEF MARQUEZ</h1>
+      <p>
+        At Aurora, we pay tribute to the elegance and charm of classically-rooted Asian cooking, spotlighting the 
+        robust and familiar flavors you know and love. Our plates are designed to 
+        be shared—a reminder that meals are more nourishing when we gather around the table. Everyone is invited.
+      </p>
+  
+    </div>
+    <div class="about-image">
+      <img src="https://www.theosrestaurant.us/wp-content/uploads/2017/02/1.jpg" alt="About Image" class="about-img" style="width: 350px;
+  height: 100%;">
+      
+    </div>
+   
+  </div>
 </div>
+
+
+   @include('aurora.footer')
+</body>
 <script>
   const container = document.querySelector('.about-container');
   const imageBox = container.querySelector('.about-image');
@@ -220,3 +267,5 @@
     observer.observe(imageBox); // Observe image container for visibility
   }
 </script>
+
+</html>

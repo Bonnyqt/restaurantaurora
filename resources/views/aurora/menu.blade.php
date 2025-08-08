@@ -978,7 +978,7 @@ p {
 <div class="book" style="cursor: pointer;">
   <div class="page cover-front" onclick="movePage(this, 1)">
    <br><br>
-    <img src="{% static 'images/branding.png'%}" style="height: auto;width:360px;"alt="">
+    <img src="{{ asset('images/branding.png') }}" style="height: auto;width:360px;"alt="">
     <div class="hat"><i class="fab fa-pied-piper-hat"></i></div>
    
   </div>

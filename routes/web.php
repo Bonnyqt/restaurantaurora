@@ -21,3 +21,5 @@ Route::get('/aurora2_psb', [PageController::class, 'psb2'])->name('psb2');
 Route::get('/aurora_bistro', [PageController::class, 'bistro'])->name('bistro');
 Route::get('/aurora2_bistro', [PageController::class, 'bistro2'])->name('bistro2');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/menu', [PageController::class, 'menu'])->name('menu');
+Route::get('/news', [PageController::class, 'news'])->name('news');

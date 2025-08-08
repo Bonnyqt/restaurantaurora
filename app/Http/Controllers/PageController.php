@@ -19,6 +19,12 @@ public function bistro2() {
     return view('bistro.bistro2');
 }
 public function about() {
-    return view('aurora.about');
+    return view('aurora.aboutPage');
+}
+public function menu() {
+    return view('aurora.showcase');
+}
+public function news() {
+    return view('aurora.news');
 }
 }

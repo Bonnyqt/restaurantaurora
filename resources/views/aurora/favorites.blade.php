@@ -128,7 +128,7 @@
 
 .view-menu-btn:hover {
   background-color: #000;
-  color: #fff;
+  color: #af7f10;
 }
 .background-text::after {
   content: "";
@@ -181,18 +181,48 @@
 .modal-content, #menuModal > *:not(span) {
   animation: modalContentPop 0.3s;
 }
+.image-gallery {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden; /* prevent vertical scroll */
+  padding: 80px 10px 40px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent wrapping of images on mobile */
+@media (max-width: 768px) {
+  .image-gallery {
+    flex-wrap: nowrap;
+    justify-content: flex-start; /* start on the left */
+  }
+
+  .image-item {
+    flex: 0 0 auto; /* prevent shrinking and wrapping */
+  }
+
+  .favorites-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 </style>
 <div class="favorites-section" id="favoritesAnchor">
   <div class="elegant-line-text">Menu</div>
   <h1 class="background-text" style="font-family: 'Playfair Display', serif; font-size: 50px;">ALL-TIME FAVORITES</h1>
 
   <div class="image-gallery">
-    <div class="image-item">
+     <a href="/menu" data-title="MENU"><div class="image-item">
       <img src="{{ asset('images/piccolo.JPG') }}" alt="Piccolo">
       <div class="hover-dim"></div>
       <div class="hover-text">Piccolo</div>
-    </div>
-    <div class="image-item">
+    </div></a>
+   <div class="image-item">
       <img src="{{ asset('images/tomahawk.JPG') }}" alt="Tomahawk Steak">
       <div class="hover-dim"></div>
       <div class="hover-text"> Tomahawk Steak</div>
@@ -255,7 +285,7 @@
   </div>
 </div>
 <div id="menuModal" class="modal" style="display: none;">
-@include('aurora.menu')
+
 </div>
 </div>
 <script>

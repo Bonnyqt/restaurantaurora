@@ -44,7 +44,7 @@
     max-width: 900px;
     margin-bottom: 10px;
   ">
-    <img src="{% static 'images/branding5.png'%}" style="height: 100px; width: auto;" alt="Logo">
+    <img src="{{ asset('images/branding5.png') }}" style="height: 100px; width: auto;" alt="Logo">
   </h1>
 
       

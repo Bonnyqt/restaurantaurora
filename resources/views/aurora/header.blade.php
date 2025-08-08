@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" type="image/png" href="{{ asset('images/auroraLogo.png') }}">
   <title>Aurora</title>
    <style>
     html {
@@ -390,11 +391,12 @@
   <div class="sidebar-content">
     <span class="close-btn" onclick="toggleMobileNav()">&times;</span>
     <ul>
-      <li><a href="{% url 'index'%}">HOME</a></li>
-      <li><a href="#aboutAnchor">ABOUT</a></li>
-      <li><a href="">RESERVATIONS</a></li>
-      <li><a href="#favoritesAnchor">MENU</a></li>
-      <li><a href="#galleryAnchor">GALLERY</a></li>
+      <li><a href="{{ url('/aurora2_psb') }}" class="{{ Request::is('aurora2_psb') ? 'active' : '' }}" data-title="HOME">HOME</a></li>
+      <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}" data-title="ABOUT">ABOUT</a></li>
+      <li><a href="" data-title="RESERVATIONS">RESERVATIONS</a></li>
+      <li><a href="{{ url('/news') }}" class="{{ Request::is('news') ? 'active' : '' }}" data-title="NEWS & UPDATES">NEWS & UPDATES</a></li>
+      <li><a href="{{ url('/menu') }}" class="{{ Request::is('menu') ? 'active' : '' }}" data-title="MENU">MENU</a></li>
+      <li><a href="#galleryAnchor" data-title="GALLERY">GALLERY</a></li>
       <li><a href="#">CONTACT US</a></li>
        <a href="#" class="luxury-btn" style="z-index: 200;">Book a Table</a>
     </ul>
@@ -412,21 +414,22 @@
   <div class="header-row">
     <nav class="nav-left">
       <ul>
-        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
-        <li><a href="#aboutAnchor">ABOUT</a></li>
-        <li><a href="">RESERVATIONS</a></li>
+        <li><a href="{{ url('/aurora2_psb') }}" class="{{ Request::is('aurora2_psb') ? 'active' : '' }}" data-title="HOME">HOME</a></li>
+      <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}" data-title="ABOUT">ABOUT</a></li>
+        <li><a href=""data-title="RESERVATIONS">RESERVATIONS</a></li>
+        <li><a href="{{ url('/news') }}" class="{{ Request::is('news') ? 'active' : '' }}" data-title="NEWS & UPDATES">NEWS & UPDATES</a></li>
       </ul>
     </nav>
      <div class="logo-center">
           <div class="sticky-logo">
-      <img src="{{ asset('images/branding.png') }}" alt="Logo">
+      <a href="/aurora2_psb"><img src="{{ asset('images/branding.png') }}" alt="Logo"></a>
     </div>
         </div>
     <nav class="nav-right">
       <ul>
-        <li><a href="#favoritesAnchor">MENU</a></li>
-        <li><a href="#galleryAnchor">GALLERY</a></li>
-        <li><a href="#">CONTACT US</a></li>
+        <li><a href="{{ url('/menu') }}" class="{{ Request::is('menu') ? 'active' : '' }}" data-title="MENU">MENU</a></li>
+        <li><a href="#galleryAnchor" data-title="GALLERY">GALLERY</a></li>
+        <li><a href="#" data-title="CONTACT US">CONTACT US</a></li>
       </ul>
     </nav>
     <div class="right-corner-logo">
@@ -438,12 +441,13 @@
   <div class="header-row" style="margin-top: 20px; background:transparent;">
     <nav class="nav-combined">
       <ul>
-        <li><a href="{% url 'index'%}" class="active">HOME</a></li>
-        <li><a href="#aboutAnchor">ABOUT</a></li>
-        <li><a href="">RESERVATIONS</a></li>
-        <li><a href="#favoritesAnchor">MENU</a></li>
-        <li><a href="#galleryAnchor">GALLERY</a></li>
-        <li><a href="#">CONTACT US</a></li>
+        <li><a href="{{ url('/aurora2_psb') }}" class="{{ Request::is('aurora2_psb') ? 'active' : '' }}" data-title="HOME">HOME</a></li>
+      <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}" data-title="ABOUT">ABOUT</a></li>
+        <li><a href=""data-title="RESERVATIONS">RESERVATIONS</a></li>
+        <li><a href="{{ url('/news') }}" class="{{ Request::is('news') ? 'active' : '' }}" data-title="NEWS & UPDATES">NEWS & UPDATES</a></li>
+        <li><a href="{{ url('/menu') }}" class="{{ Request::is('menu') ? 'active' : '' }}" data-title="MENU">MENU</a></li>
+        <li><a href="#galleryAnchor" data-title="GALLERY">GALLERY</a></li>
+        <li><a href="#"data-title="CONTACT US">CONTACT US</a></li>
       </ul>
     </nav>
     <div class="right-corner-logo" onclick="navigateWithLoader2('{{ url('/aurora2_bistro') }}')">
@@ -503,12 +507,19 @@ function toggleMobileNav() {
 
       // Insert mobile logo if not yet added
       if (!mobileLogoInserted) {
+        const logoLink = document.createElement('a');
+        logoLink.href = "/aurora2_psb"; // <-- Replace this with your desired link
+        logoLink.id = "mobileLogoLink";
+
         const logo = document.createElement('img');
         logo.src = "{{ asset('images/branding.png') }}";
         logo.alt = "Logo";
         logo.id = "mobileLogo";
         logo.className = "mobile-logo";
-        mobileHeaderRow.appendChild(logo);
+
+        logoLink.appendChild(logo);
+        mobileHeaderRow.appendChild(logoLink);
+
         setTimeout(() => logo.classList.add('visible'), 10); // trigger transition
         mobileLogoInserted = true;
       } else {
@@ -522,6 +533,28 @@ function toggleMobileNav() {
       const logo = document.getElementById('mobileLogo');
       if (logo) logo.classList.remove('visible');
     }
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const elegantText = document.querySelector(".elegant-line-text");
+
+    // Restore from localStorage on page load
+    const savedTitle = localStorage.getItem("elegantHeader");
+    if (savedTitle && elegantText) {
+      elegantText.textContent = savedTitle;
+    }
+
+    // Save title on link click
+    const navLinks = document.querySelectorAll("a[data-title]");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function () {
+        const title = this.getAttribute("data-title");
+        if (title) {
+          localStorage.setItem("elegantHeader", title.toUpperCase());
+        }
+      });
+    });
   });
 </script>
 
